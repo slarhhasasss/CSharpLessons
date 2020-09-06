@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
@@ -28,7 +29,21 @@ namespace ConsoleApp1CSharp
             //Удаляем элемент "7", Если хотим удалить по индексу, то RemoveAt()
             arr4.Remove(7);
             foreach (int elem in arr4) Console.Write($"{elem} ");   //1 5
-            
+            Console.WriteLine();
+
+            //Коллекция := список с элементами разных типов данных
+            ArrayList arr5 = new ArrayList() { "hello", 'a', 3 };
+            foreach (object elem in arr5) Console.Write($"{elem} ");   //out: "hello a 3"
+            Console.WriteLine();
+
+            //Словари - понятно что это такое:
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            dict.Add("Dima", "Kolesnikov");
+            dict.Add("Alina", "Malyanova");
+            Console.WriteLine(dict.TryGetValue("Alina", out string valueName)); //out: True
+            Console.WriteLine(valueName);   //out: Malyanova
+            foreach (KeyValuePair<string, string> elem in dict) Console.Write($"{elem.Key} : {elem.Value}, ");
+            Console.WriteLine();
         }
 
         //Создание простого одномерного массива размером 5 (типы данных любые)
